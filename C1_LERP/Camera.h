@@ -78,9 +78,10 @@ public:
 	}
 	void ChangePitch(float fIncrement) {
 
-		orientation = orientation + quaternion(vector3(fIncrement, 0.0f, 0.0f));
-		up = up + orientation * vector3(1,0,0);
-		up = glm::normalize(up);
+		//orientation = orientation + quaternion(vector3(fIncrement, 0.0f, 0.0f));
+		quaternion pitch = glm::angleAxis(yawPitchRoll.x, rightwards);
+		up = glm::rotate(pitch, up);
+		
 
 		m_m4View = glm::lookAt(position, target, up);
 	}
@@ -95,7 +96,9 @@ private:
 	vector3 position;
 	vector3 target;
 	vector3 up;
-
+	vector3 forward;
+	vector3 rightwards;
+	vector3 yawPitchRoll;
 	
 };
 
