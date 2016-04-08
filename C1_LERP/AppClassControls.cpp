@@ -54,6 +54,12 @@ void AppClass::ProcessKeyboard(void)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
 		CameraManager->ChangePitch(fSpeed);
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+		CameraManager->ChangeRoll(fSpeed);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y)) {
+		CameraManager->ChangeYaw(fSpeed);
+	}
 #pragma endregion
 
 #pragma region Model Positioning
